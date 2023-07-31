@@ -25,5 +25,5 @@ Such as:
 - **Toolbar:** With the toolbar, writing markdown files becomes even faster and more productive, in fact, if necessary, you can press buttons to insert parts of bold, italic, striked, code, etc. in the text.
 
 ## Contributors
-> @lnzdevdavide (Me, Developer)
-> @HurtSprink (Oksana, Beta Tester)
+@lnzdevdavide (Me, Developer)
+@HurtSprink (Oksana, Beta Tester)
