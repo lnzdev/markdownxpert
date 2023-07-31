@@ -23,7 +23,3 @@ Such as:
 - **Live Preview:** At the click of a button or through the menubar, you can now effortlessly toggle the Preview Window, which instantly renders your Markdown content into a beautifully formatted and easy-to-read display. No more guessing how your text will appear once it's published or shared!
 - **HTML Export:** With just a simple click, you can instantly export your Markdown file as a standalone HTML file. But at the moment it doesn't provide any type of styling, we're working to provide the css style directly inside of the HTML file.
 - **Toolbar:** With the toolbar, writing markdown files becomes even faster and more productive, in fact, if necessary, you can press buttons to insert parts of bold, italic, striked, code, etc. in the text.
-
-## Contributors
-@lnzdevdavide (Me, Developer)
-@HurtSprink (Oksana, Beta Tester)
