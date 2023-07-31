@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!--Body-->
+  <div class="markdown-body" id="prev"></div>
+
+  <!--Update-->
+  <script>
+      window.api.on("livepreview:updated-theme", (e, t) => {
+        setWindowTheme(t);
+      });
+
+      window.api.on("livepreview:updated-prev-content", (e, prevContent) => {
+        document.getElementById("prev").innerHTML = prevContent;
+      });
+
+      function setWindowTheme(state) {
+        if (state === "system") {
+          if (window.matchMedia("(prefers-color-scheme: dark)").matches) { document.body.classList.add("dark");
+          } else { document.body.classList.remove("dark"); }
+      
+          window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", event => {
+            if (event.matches) { document.body.classList.add("dark");
+            } else { document.body.classList.remove("dark"); }
+          });
+        }
+        if (state === "dark") { document.body.classList.add("dark"); }
+        if (state === "light") { document.body.classList.remove("dark"); }
+      }
+  </script>
+</body>
+</html>

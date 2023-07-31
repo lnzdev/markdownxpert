@@ -1,0 +1,76 @@
+{
+  "name": "markdownxpert",
+  "version": "1.0.0",
+  "description": "MarkdownXpert is a powerful and intuitive Markdown editor for content creators, writers, and developers.",
+  "author": {
+    "name": "Lenzi Dev",
+    "email": "lnzdev@outlook.com",
+    "url": "http://lenzi.info/dev"
+  },
+  "main": "main.js",
+  "license": "MIT",
+  "homepage": "http://github.com/lnzdev/markdownxpert#readme",
+  "repository": {
+    "url": "http://github.com/lnzdev/markdownxpert",
+    "type": "git"
+  },
+  "scripts": {
+    "start": "electron .",
+    "start:argv": "electron . ./README.md",
+    "build:win": "electron-builder --win --x64 --ia32 --arm64",
+    "build:mac": "electron-builder --mac --universal",
+    "build:linux": "electron-builder --linux --x64 --armv7l --arm64"
+  },
+  "devDependencies": {
+    "electron": "^22.3.15",
+    "electron-builder": "^24.4.0"
+  },
+  "dependencies": {
+    "marked": "^5.1.1"
+  },
+  "build": {
+    "appId": "com.lenzidev.markdownxpert",
+    "productName": "MarkdownXpert",
+    "directories": {
+      "output": "bin"
+    },
+    "win": {
+      "target": [ "dir" ],
+      "icon": "build/icon.ico"
+    },
+    "mac": {
+      "target": [ "dmg" ],
+      "icon": "build/icon.icns",
+      "category": "public.app-category.productivity",
+      "artifactName": "markdownxpert-darwin-universal.${ext}"
+    },
+    "linux": {
+      "target": [ "deb" ],
+      "icon": "build/icon.png",
+      "category": "linux.category.productivity",
+      "artifactName": "markdownxpert-linux-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": false,
+      "allowToChangeInstallationDirectory": true,
+      "menuCategory": false,
+      "artifactName": "markdownxpert-win-setup-${arch}.${ext}",
+      "installerIcon": "build/setup.ico",
+      "installerSidebar": "build/sidebar-icon.bmp",
+      "installerLanguages": [ "en_US" ],
+      "deleteAppDataOnUninstall": true,
+      "displayLanguageSelector": true,
+      "removeDefaultUninstallWelcomePage": false
+    },
+    "fileAssociations": [
+      {
+        "ext": [ "md" ],
+        "name": "Markdown Document",
+        "icon": "build/file/fileicon"
+      }
+    ]
+  }
+}

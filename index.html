@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--Title-->
+	<title></title>
+	
+	<!--Meta-->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!--Link-->
+	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="res/modules/ace/css/custom/ace.css">
+
+	<!--Scripts-->
+	<script src="res/modules/fa/js/all.js"></script>
+</head>
+<body class="dark">
+	<!--Main-->
+	<main>
+		<div id="toolbar">
+			<div class="left-align" style="margin: 0;">
+				<button class="btn" id="undo" title="Undo" tabindex="-1"><i class="fa-solid fa-undo"></i></button>
+				<button class="btn" id="redo" title="Redo" tabindex="-1"><i class="fa-solid fa-redo"></i></button>
+				<div class="separator"></div>
+				<button class="btn" id="ins-bold" title="Bold" tabindex="-1"><i class="fa-solid fa-bold"></i></button>
+				<button class="btn" id="ins-italic" title="Italic" tabindex="-1"><i class="fa-solid fa-italic"></i></button>
+				<button class="btn" id="ins-striked" title="Strikethrough" tabindex="-1"><i class="fa-solid fa-strikethrough"></i></button>
+				<div class="separator"></div>
+				<button class="btn" id="ins-blockquote" title="Blockquote" tabindex="-1"><i class="fa-solid fa-quote-left"></i></button>
+				<button class="btn" id="ins-table" title="Table" tabindex="-1"><i class="fa-solid fa-table"></i></button>
+				<button class="btn" id="ins-code" title="Code" tabindex="-1"><i class="fa-solid fa-code"></i></button>  
+			</div>
+			<div class="right-align">
+				<button class="btn" id="stop-preview" title="Stop Preview" tabindex="-1"><i class="fa-solid fa-stop"></i></button>  
+				<button class="btn" id="start-preview" title="Start Preview" tabindex="-1"><i class="fa-solid fa-play"></i></button>  
+			</div>
+		</div>
+
+    	<div id="texteditor"></div>
+
+    	<div id="statusbar">
+			<span class="left-align" id="ln-col-pos"></span>
+			<span class="right-align" id="total-lines"></span>
+			<a href="javascript:void(0)" id="select-indentation" class="right-align" title="Select Indentation" tabindex="-1"></a>
+    	</div>
+
+    	<!--Settings-->
+		<div class="popup" id="settings-popup">
+			<div class="titlebar">
+				<span class="title">Settings</span>
+			</div>
+
+			<div class="content">
+				<div class="option-container">
+					<span class="option-title"><span>Window:</span> Toolbar</span>
+					<div class="option-control">
+						<div class="custom-checkbox" id="toggle-toolbar">
+							<i class="checkmark fa-solid fa-check"></i>
+						</div>
+					</div>
+				</div>
+				<div class="option-container">
+					<span class="option-title"><span>Window:</span> Statusbar</span>
+					<div class="option-control">
+						<div class="custom-checkbox" id="toggle-statusbar">
+							<i class="checkmark fa-solid fa-check"></i>
+						</div>
+					</div>
+				</div>
+				<div class="option-separator"></div>
+				<div class="option-container">
+					<span class="option-title"><span>Editor:</span> Line Counter</span>
+					<div class="option-control">
+						<div class="custom-checkbox" id="toggle-linecounter">
+							<i class="checkmark fa-solid fa-check"></i>
+						</div>
+					</div>
+				</div>
+				<div class="option-container">
+					<span class="option-title"><span>Editor:</span> Indent Guides</span>
+					<div class="option-control">
+						<div class="custom-checkbox" id="toggle-indentguides">
+							<i class="checkmark fa-solid fa-check"></i>
+						</div>
+					</div>
+				</div>
+				<div class="option-container">
+					<span class="option-title"><span>Editor:</span> Word Wrap</span>
+					<div class="option-control">
+						<div class="custom-checkbox" id="toggle-wordwrap">
+							<i class="checkmark fa-solid fa-check"></i>
+						</div>
+					</div>
+				</div>
+				<div class="option-container">
+					<span class="option-title"><span>Editor:</span> Font Size</span>
+					<div class="option-control">
+						<div class="custom-range">
+							<button class="btn decrease-btn" id="font-decrease"><i class="fa-solid fa-minus"></i></button>
+							<input type="number" min="5" max="30" value="15" class="range-input" id="font-range" disabled>
+							<button class="btn increase-btn" id="font-increase"><i class="fa-solid fa-plus"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="close-btn" id="close-settings">
+				<span>Done</span>
+			</div>
+		</div>
+  	</main>
+
+	  <script src="res/modules/ace/src/ace.js"></script>
+	<script>
+		var editor = ace.edit("texteditor");
+		editor.setTheme("ace/theme/github");
+		editor.setKeyboardHandler("ace/keyboard/vscode");
+	</script>
+
+	<!--Scripts-->
+	<script src="res/modules/ace/src/ext-beautify.js"></script>
+	<script src="res/modules/ace/src/ext-searchbox.js"></script>
+	<script src="res/modules/ace/src/ext-insertions.js"></script>
+	<script src="res/modules/ace/src/mode-markdown.js"></script>
+	<script src="res/modules/ace/src/theme-github.js"></script>
+	<script src="res/modules/ace/src/keybinding-vscode.js"></script>
+
+	<script src="src/index.js"></script>
+</body>
+</html>

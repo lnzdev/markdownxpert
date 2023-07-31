@@ -1,0 +1,345 @@
+/*Hide Unnecessary Menus*/
+body .ace_mobile-menu, .ace_prompt_container, #ace_settingsmenu { display: none !important }
+body div:has(.ace_prompt_container) { display: none !important }
+body div:has(#ace_settingsmenu) { display: none !important; background-color: none; background: none; }
+
+/*Tool Tip*/
+body .ace_tooltip {
+    color: var(--fg);
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--border-rad);
+    padding: 6px;
+    font-size: 12px;
+    font-family: var(--ui-font);
+}
+
+/*Search Box*/
+body .ace_search {
+    color: var(--fg);
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-top: 0 none;
+    border-bottom-left-radius: var(--border-rad);
+    overflow: hidden;
+    margin: 0;
+    padding: 10px;
+    padding-bottom: 0;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    cursor: default;
+    white-space: normal;
+    font-family: var(--ui-font);
+}
+body .ace_search_form, .ace_replace_form {
+    margin: 0 20px 4px 0;
+    overflow: hidden;
+    line-height: 1.9;
+}
+body .ace_search_options {
+    display: block;
+    padding-top: 5px;
+    padding-right: 20px;
+    margin-left: 0;
+}
+body .ace_replace_form { margin-right: 0; }
+body .ace_search_form.ace_nomatch { outline: none; }
+body .ace_search_form.ace_nomatch > .ace_search_field {
+    border-radius: var(--border-rad);
+    border: 1px solid brown;
+}
+body .ace_search_field {
+    border-radius: var(--border-rad) 0 0 var(--border-rad);
+    background-color: var(--bg);
+    color: var(--fg);
+    border: 1px solid var(--border);
+    border-right: 0 none;
+    font-size: 12px;
+    font-family: var(--ui-font);
+    outline: 0;
+    margin: 0;
+    margin-top: 2px;
+    padding-inline: 5px;
+    line-height: 25px;
+    min-width: 180px;
+    box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+}
+body .ace_searchbtn {
+    display: inline-block;
+    border: 1px solid var(--border);
+    line-height: 25px;
+    background: var(--bg);
+    border-right: 0 none;
+    cursor: pointer;
+    margin: 0;
+    padding-inline: 5px;
+    position: relative;
+    color: var(--fg);
+    font-size: 12px;
+    font-family: var(--ui-font);
+    transition: 0.1s;
+}
+body .ace_searchbtn:last-child {
+    width: 20px;
+    text-align: center;
+    padding-inline: 2px;
+    border-radius: 0 var(--border-rad) var(--border-rad) 0;
+    border-right: 1px solid var(--border);
+}
+body .ace_searchbtn:disabled {
+    background: none;
+    cursor: default;
+}
+body .ace_searchbtn:hover {
+    color: var(--btn-fg-hover);
+    background-color: var(--accent); 
+}
+body .ace_searchbtn.prev, .ace_searchbtn.next {
+    width: 10px;
+    text-align: center;
+}
+body .ace_searchbtn.prev:after, .ace_searchbtn.next:after {
+    content: "";
+    border: solid 1px var(--fg);
+    width: 0.5em;
+    color: var(--fg);
+    border-width:  1px 0 0 1px;
+    display: inline-block;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+body .ace_searchbtn.prev:hover:after, .ace_searchbtn.next:hover:after { border-color: var(--btn-fg-hover); }
+body .ace_searchbtn.next:after { border-width: 0 1px 1px 0 ; }
+body .ace_searchbtn_close {
+    background: url(../main-16.png) no-repeat 50% 0;
+    border-radius: 50%;
+    border: 0 none;
+    color: var(--fg);
+    cursor: pointer;
+    padding: 0;
+    height: 14px;
+    width: 14px;
+    top: 10px;
+    right: 10px;
+    position: absolute;
+}
+body .ace_searchbtn_close:hover {
+    background-color: var(--primary);
+    background-position: 50% 100%;
+    color: white;
+}
+body .ace_button {
+    display: inline-block;
+    cursor: pointer;
+    overflow: hidden;
+    opacity: 1;
+    border-radius: var(--border-rad);
+    border: 1px solid var(--border);
+    width: 20px;
+    height: 20px;
+    color: var(--fg);
+    text-align: center;
+    font-size: 12px;
+    font-family: var(--ui-font);
+    transition: 0.1s;
+}
+body .ace_button[action=toggleReplace] {
+    margin: 0;
+    padding: 0;
+}
+body .ace_button:hover {
+    color: var(--btn-fg-hover);
+    background-color: var(--accent);
+}
+body .ace_button:active {
+    background-color: var(--accent);
+}
+body .ace_button.checked[action=toggleReplace] {
+    border: 1px solid var(--border);
+    box-shadow: none;
+}
+body .ace_button.checked {
+    border: 1px solid var(--accent);
+    box-shadow: 0 0 4px var(--accent);
+}
+body .ace_search_counter {
+    float: left;
+    font-size: 12px;
+    font-family: var(--ui-font);
+    padding: 0 8px;
+}
+
+/*Autocomplete*/
+body .ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {
+    background-color: var(--editor-active-line);
+    z-index: 1;
+}
+body .ace_editor.ace_autocomplete .ace_line-hover {
+    border: none;
+    background: var(--editor-active-line);
+    position: absolute;
+    margin-top: 0px;
+    opacity: 0.6;
+    z-index: 2;
+}
+body .ace_completion-meta {
+    opacity: 0.5;
+    margin: 0.9em;
+}
+body .ace_completion-message { color: blue; }
+body .ace_editor.ace_autocomplete .ace_completion-highlight { color: var(--accent); }
+body .ace_editor.ace_autocomplete {
+    width: 300px;
+    z-index: 1000;
+    border: 1px solid var(--border);
+    border-radius: var(--border-rad);
+    position: fixed;
+    box-shadow: 2px 3px 5px rgba(0,0,0,.2);
+    line-height: 1.4;
+    background: var(--bg);
+    color: var(--fg);
+}
+
+
+/*Editor*/
+body .ace-github .ace_gutter {
+    color: var(--editor-gutter-fg);
+    background: var(--bg);
+}
+body .ace-github .ace_print-margin {
+    width: 1px;
+    background: var(--accent);
+}
+body .ace-github {
+    background-color: var(--bg);
+    color: var(--editor-fg);
+    font-family: var(--editor-font);
+    transition: 0.2s;
+}
+body .ace-github .ace_constant.ace_other,
+body .ace-github .ace_cursor { color: var(--accent); }
+body .ace-github .ace_marker-layer .ace_selection { background: var(--editor-active-line); }
+body .ace-github.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #24292e; }
+body .ace-github .ace_marker-layer .ace_bracket {
+    margin: -1px 0 0 -1px;
+    border: 1px solid #404F7D;
+}
+body .ace-github .ace_marker-layer .ace_active-line { background: var(--editor-active-line); }
+body .ace-github .ace_gutter-active-line {
+    color: var(--fg);
+    background-color: var(--bg);
+    border-left: 4px solid var(--accent);
+}
+body .ace-github.ace_focus .ace_marker-layer .ace_active-line { background: var(--editor-active-line); }
+body .ace-github .ace_marker-layer .ace_selected-word {
+    border: 1px solid var(--editor-active-line);
+    background-color: var(--editor-active-line);
+}
+body .ace-github .ace_invisible { color: #404F7D }
+/* Text Colors */
+body .ace-github .ace_meta,
+body .ace-github .ace_storage,
+body .ace-github .ace_storage.ace_type,
+body .ace-github .ace_constant.ace_character,
+body .ace-github .ace_constant.ace_language,
+body .ace-github .ace_constant.ace_numeric,
+body .ace-github .ace_keyword.ace_other.ace_unit,
+body .ace-github .ace_support.ace_constant {
+    color: #ff7b72;
+    font-weight: normal;
+}
+
+body .ace-github .ace_constant {
+    color: #7ee787;
+    font-weight: normal;
+}
+
+body .ace-github .ace_invalid,
+body .ace-github .ace_invalid.ace_deprecated {
+    color: #FFFFFF;
+    background-color: brown;
+    font-weight: normal;
+}
+
+body .ace-github .ace_fold {
+    background-color: var(--bg);
+    border-color: var(--border);
+    font-weight: normal;
+}
+
+body .ace-github .ace_keyword.ace_operator {
+    color: #ff7b72;
+    font-weight: normal;
+}
+
+body .ace-github .ace_variable.ace_parameter {
+    color: #ffa657;
+    font-weight: normal;
+}
+
+body .ace-github .ace_entity.ace_name.ace_function,
+body .ace-github .ace_support.ace_function,
+body .ace-github .ace_variable {
+    color: #d2a8ff;
+    font-weight: normal;
+}
+
+body .ace-github .ace_support.ace_class,
+body .ace-github .ace_support.ace_type {
+    color: #79c0ff;
+    font-weight: normal;
+}
+
+body .ace-github .ace_identifier {
+    color: #79c0ff;
+    font-weight: normal;
+}
+
+body .ace-github .ace_heading,
+body .ace-github .ace_markup.ace_heading,
+body .ace-github .ace_string {
+    color: #9fcef6;
+    font-weight: normal;
+}
+
+body .ace-github .ace_entity.ace_name.ace_tag,
+body .ace-github .ace_entity.ace_other.ace_attribute-name,
+body .ace-github .ace_meta.ace_tag,
+body .ace-github .ace_string.ace_regexp {
+    color: #FF9DA4;
+    font-weight: normal;
+}
+body .ace-github .ace_variable {
+    color: #79c0ff;
+    font-weight: normal;
+}
+body .ace-github .ace_keyword {
+    color: #79c0ff;
+    font-weight: normal;
+}
+
+body .ace-github .ace_comment {
+    color: #7285B7;
+}
+
+body .ace-github .ace_indent-guide {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWNgYGBgYJDzqfwPAANXAeNsiA+ZAAAAAElFTkSuQmCC) right repeat-y;
+}
+body .ace-github .ace_indent-guide-active {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQIW2PQ1dX9zzBz5sz/ABCcBFFentLlAAAAAElFTkSuQmCC) right repeat-y;
+}
+
+body .ace-github .ace_paren.ace_lparen, .ace_paren.ace_rparen {
+    font-weight: normal;
+}
+
+body .ace-github .ace_constant.ace_buildin {
+    color: #0086B3;
+    font-weight: normal;
+}
+body .ace-github .ace_variable.ace_language {
+    color: var(--fg);
+    font-weight: normal;
+}
