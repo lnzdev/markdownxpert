@@ -9,10 +9,9 @@
   },
   "main": "main.js",
   "license": "MIT",
-  "homepage": "http://github.com/lnzdev/markdownxpert#readme",
-  "repository": {
-    "url": "http://github.com/lnzdev/markdownxpert",
-    "type": "git"
+  "homepage": "http://lenzi.info/dev/markdownxpert",
+  "bugs": {
+    "url": "https://github.com/lnzdev/markdownxpert/issues"
   },
   "scripts": {
     "start": "electron .",
