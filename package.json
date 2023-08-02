@@ -1,18 +1,24 @@
 {
   "name": "markdownxpert",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MarkdownXpert is a powerful and intuitive Markdown editor for content creators, writers, and developers.",
   "author": {
     "name": "Lenzi Dev",
     "email": "lnzdev@outlook.com",
     "url": "http://lenzi.info/dev"
   },
-  "main": "main.js",
+  "main": "src/main-process/main.js",
   "license": "MIT",
   "homepage": "http://lenzi.info/dev/markdownxpert",
   "bugs": {
     "url": "https://github.com/lnzdev/markdownxpert/issues"
   },
+  "keywords": [
+    "mdxpert",
+    "markdownxpert",
+    "md",
+    "markdown editor"
+  ],
   "scripts": {
     "start": "electron .",
     "start:argv": "electron . ./README.md",

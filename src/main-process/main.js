@@ -1,5 +1,5 @@
 const { app, BrowserWindow, Menu, ipcMain, nativeTheme, dialog, shell } = require("electron");
-const store = require("./src/store");
+const store = require("../utils/store");
 const path = require("path");
 
 /*App Informations*/
@@ -15,9 +15,9 @@ const appInfo = {
 
 /*URLs*/
 const URLs = {
-	bugs: "https://github.com/lenzidavide/markdownxpert/issues",
-	repo: "https://github.com/lenzidavide/markdownxpert",
-	twitter: "https://twitter.com/lenzidav"
+	bugs: "https://github.com/lnzdev/markdownxpert/issues",
+	repo: "https://github.com/lnzdev/markdownxpert",
+	twitter: "https://twitter.com/lnzdev"
 }
 
 /*Window Data Store*/
@@ -70,9 +70,9 @@ function initWindow(callerwin, filePaths = []) {
 		...x && { x },
 		...y && { y },
 		icon: appInfo.os.mac ?
-		path.join(__dirname, "build/icon.icns") : appInfo.os.win ?
-		path.join(__dirname, "build/icon.ico") :
-		path.join(__dirname, "build/icon.png"),
+		path.join(__dirname, "../../build/icon.icns") : appInfo.os.win ?
+		path.join(__dirname, "../../build/icon.ico") :
+		path.join(__dirname, "../../build/icon.png"),
 		title: appInfo.name,
 		width: width,
 		height: height,
@@ -83,7 +83,7 @@ function initWindow(callerwin, filePaths = []) {
 			webSecurity: true,
 			nodeIntegration: true,
 			contextIsolation: true,
-			preload: path.join(__dirname, "src/preload.js")
+			preload: path.join(__dirname, "../utils/preload.js")
 		}
 	});
 
@@ -93,7 +93,7 @@ function initWindow(callerwin, filePaths = []) {
 			callerwin.getPosition()[1] + 30);
 	}
 
-  	win.loadFile(path.join(__dirname, "index.html"));
+  	win.loadFile(path.join(__dirname, "../renderer/index.html"));
 	win.webContents.on("before-input-event", (event, input) => win.webContents.send("window:keyboard-input", input));
 
 	win.on("focus", () => win.webContents.send("window:focus"));
@@ -579,6 +579,7 @@ ipcMain.on("menubar:check-item", (event, id, checked) => {
 let previewWin = undefined;
 ipcMain.on("livepreview:start", (event) => {
 	const win = BrowserWindow.fromWebContents(event.sender);
+	Menu.setApplicationMenu(Menu.buildFromTemplate([]))
 
 	let { x, y, width, height, alwaysOnTop } = userData.get("previewConfig");
 
@@ -598,11 +599,11 @@ ipcMain.on("livepreview:start", (event) => {
 			webPreferences: {
 				nodeIntegration: true,
 				contextIsolation: true,
-				preload: path.join(__dirname, "src/preload.js")
+				preload: path.join(__dirname, "../utils/preload.js")
 			}
 		});
 	
-		previewWin.loadFile(path.join(__dirname, "src/preview/index.html"));
+		previewWin.loadFile(path.join(__dirname, "../renderer/preview/index.html"));
 
 		previewWin.webContents.on('will-navigate', (event, url) => {
 			event.preventDefault();
@@ -625,6 +626,7 @@ ipcMain.on("livepreview:start", (event) => {
 				...{ x, y, width, height },
 			});
 		});	
+		previewWin.on("focus", () => Menu.setApplicationMenu(Menu.buildFromTemplate([])));
 
 		previewWin.on("ready-to-show", () => win.webContents.send("livepreview:opened"));
 		previewWin.on("close", () => {
